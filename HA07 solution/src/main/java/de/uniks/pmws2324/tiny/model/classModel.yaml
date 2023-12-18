@@ -1,0 +1,260 @@
+- c: 	org.fulib.classmodel.ClassModel
+  classes: 	street 	location 	city 	order 	car 	headQuarter
+  defaultCollectionType: 	c1
+  defaultPropertyStyle: 	Bean
+  defaultRoleType: 	"java.util.ArrayList<%s>"
+  mainJavaDir: 	"src/main/java"
+  packageName: 	de.uniks.pmws2324.tiny.model
+  packageSrcFolder: 	"src/main/java/de/uniks/pmws2324/tiny/model"
+
+- street: 	org.fulib.classmodel.Clazz
+  attributes: 	street_speedLimit 	street_blocked
+  model: 	c
+  modified: 	false
+  name: 	Street
+  propertyStyle: 	Bean
+  roles: 	street_connects
+  superClass: 	location
+
+- location: 	org.fulib.classmodel.Clazz
+  attributes: 	location_x 	location_y
+  model: 	c
+  modified: 	false
+  name: 	Location
+  propertyStyle: 	Bean
+  roles: 	location_cars
+  subClasses: 	street 	city
+
+- city: 	org.fulib.classmodel.Clazz
+  attributes: 	city_name
+  model: 	c
+  modified: 	false
+  name: 	City
+  propertyStyle: 	Bean
+  roles: 	city_streets 	city_orders
+  subClasses: 	headQuarter
+  superClass: 	location
+
+- order: 	org.fulib.classmodel.Clazz
+  attributes: 	order_expires 	order_reward
+  model: 	c
+  modified: 	false
+  name: 	Order
+  propertyStyle: 	Bean
+  roles: 	order_location 	order_car
+
+- car: 	org.fulib.classmodel.Clazz
+  attributes: 	car_driver
+  model: 	c
+  modified: 	false
+  name: 	Car
+  propertyStyle: 	Bean
+  roles: 	car_position 	car_order 	car_owner
+
+- headQuarter: 	org.fulib.classmodel.Clazz
+  attributes: 	headQuarter_money
+  model: 	c
+  modified: 	false
+  name: 	HeadQuarter
+  propertyStyle: 	Bean
+  roles: 	headQuarter_ownedCars
+  superClass: 	city
+
+- c1: 	org.fulib.classmodel.CollectionType
+  implClass: 	class java.util.ArrayList
+  implTemplate: 	"java.util.ArrayList<%s>"
+  itf: 	org.fulib.classmodel.CollectionInterface.List
+  qualifiedImplName: 	java.util.ArrayList
+  simpleImplName: 	ArrayList
+
+- street_speedLimit: 	org.fulib.classmodel.Attribute
+  clazz: 	street
+  id: 	Street_speedLimit
+  modified: 	false
+  name: 	speedLimit
+  propertyStyle: 	Bean
+  type: 	int
+  typeSignature: 	int
+
+- street_blocked: 	org.fulib.classmodel.Attribute
+  clazz: 	street
+  id: 	Street_blocked
+  modified: 	false
+  name: 	blocked
+  propertyStyle: 	Bean
+  type: 	boolean
+  typeSignature: 	boolean
+
+- street_connects: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	street
+  collectionType: 	c1
+  id: 	Street_connects
+  modified: 	false
+  name: 	connects
+  other: 	city_streets
+  propertyStyle: 	Bean
+  roleType: 	"java.util.ArrayList<%s>"
+
+- location_x: 	org.fulib.classmodel.Attribute
+  clazz: 	location
+  id: 	Location_x
+  modified: 	false
+  name: 	x
+  propertyStyle: 	Bean
+  type: 	int
+  typeSignature: 	int
+
+- location_y: 	org.fulib.classmodel.Attribute
+  clazz: 	location
+  id: 	Location_y
+  modified: 	false
+  name: 	y
+  propertyStyle: 	Bean
+  type: 	int
+  typeSignature: 	int
+
+- location_cars: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	location
+  collectionType: 	c1
+  id: 	Location_cars
+  modified: 	false
+  name: 	cars
+  other: 	car_position
+  propertyStyle: 	Bean
+  roleType: 	"java.util.ArrayList<%s>"
+
+- city_name: 	org.fulib.classmodel.Attribute
+  clazz: 	city
+  id: 	City_name
+  modified: 	false
+  name: 	name
+  propertyStyle: 	Bean
+  type: 	String
+  typeSignature: 	String
+
+- city_streets: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	city
+  collectionType: 	c1
+  id: 	City_streets
+  modified: 	false
+  name: 	streets
+  other: 	street_connects
+  propertyStyle: 	Bean
+  roleType: 	"java.util.ArrayList<%s>"
+
+- city_orders: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	city
+  collectionType: 	c1
+  id: 	City_orders
+  modified: 	false
+  name: 	orders
+  other: 	order_location
+  propertyStyle: 	Bean
+  roleType: 	"java.util.ArrayList<%s>"
+
+- order_expires: 	org.fulib.classmodel.Attribute
+  clazz: 	order
+  id: 	Order_expires
+  modified: 	false
+  name: 	expires
+  propertyStyle: 	Bean
+  type: 	long
+  typeSignature: 	long
+
+- order_reward: 	org.fulib.classmodel.Attribute
+  clazz: 	order
+  id: 	Order_reward
+  modified: 	false
+  name: 	reward
+  propertyStyle: 	Bean
+  type: 	int
+  typeSignature: 	int
+
+- order_location: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	order
+  id: 	Order_location
+  modified: 	false
+  name: 	location
+  other: 	city_orders
+  propertyStyle: 	Bean
+
+- order_car: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	order
+  id: 	Order_car
+  modified: 	false
+  name: 	car
+  other: 	car_order
+  propertyStyle: 	Bean
+
+- car_driver: 	org.fulib.classmodel.Attribute
+  clazz: 	car
+  id: 	Car_driver
+  modified: 	false
+  name: 	driver
+  propertyStyle: 	Bean
+  type: 	String
+  typeSignature: 	String
+
+- car_position: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	car
+  id: 	Car_position
+  modified: 	false
+  name: 	position
+  other: 	location_cars
+  propertyStyle: 	Bean
+
+- car_order: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	car
+  id: 	Car_order
+  modified: 	false
+  name: 	order
+  other: 	order_car
+  propertyStyle: 	Bean
+
+- car_owner: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	car
+  id: 	Car_owner
+  modified: 	false
+  name: 	owner
+  other: 	headQuarter_ownedCars
+  propertyStyle: 	Bean
+
+- headQuarter_money: 	org.fulib.classmodel.Attribute
+  clazz: 	headQuarter
+  id: 	HeadQuarter_money
+  modified: 	false
+  name: 	money
+  propertyStyle: 	Bean
+  type: 	int
+  typeSignature: 	int
+
+- headQuarter_ownedCars: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	headQuarter
+  collectionType: 	c1
+  id: 	HeadQuarter_ownedCars
+  modified: 	false
+  name: 	ownedCars
+  other: 	car_owner
+  propertyStyle: 	Bean
+  roleType: 	"java.util.ArrayList<%s>"
+
