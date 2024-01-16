@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="78.0" prefWidth="428.0" style="-fx-border-color: black; -fx-border-radius: 5;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.uniks.pmws2324.tiny.controller.CarSubController">
+   <children>
+      <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@auto.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="317.0" layoutY="18.0" text="Dest.:" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="carDriverLabel" layoutX="107.0" layoutY="42.0" text="Tom R." AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="110.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="carDestinationLabel" layoutX="307.0" layoutY="42.0" text="Paderborn" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="300.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="108.0" layoutY="7.0" text="Driver:" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>
